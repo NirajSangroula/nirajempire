@@ -1,0 +1,20 @@
+{
+    "name": "sangr/zend-v112-skeleton-master",
+    "authors": [
+        {
+            "name": "Niraj",
+            "email": "sangroulaniraj15@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+    	"psr-4":{
+    		"App\\Forms\\": "application/forms/",
+            "App\\Models\\": "application/models/",
+            "App\\Models\\DbTable\\": "application/models/DbTable/",
+            "App\\Auth\\": "application/authentication/",
+            "App\\Functions\\": "application/",
+            "App\\Classes\\": "application/classes/"
+    	}
+    }
+}

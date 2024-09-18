@@ -1,0 +1,216 @@
+/*dd{
+	width: fit-content !important;
+}*/
+.form-contents dt{
+	display:block !important;
+}
+dt{
+	display:none !important;
+}
+.navbar{
+	background-color:#17416f;
+}
+.pagename{
+	font-size:2rem;
+	color:#fbfbfb;
+	font-style:italic;
+	text-shadow: 3px 2px 7px #ff8013;
+}
+.menubar{
+
+}
+.menubar a{
+	padding: 22px 17px 22px 17px;
+	color:#00fff3c7;
+}
+.menubar a:hover{
+	/*padding: 15px 17px 15px 17px;*/
+	background-color: #75260e;
+	height:100%;
+	text-decoration:none;
+	color:white;
+}
+.bodycontents{
+	/*max-height: 250px;
+	overflow-y: scroll;*/
+}
+@media (max-width:750px){
+	.pagename{
+		width:100%;
+
+
+	}
+	.menubar{
+		display:block;
+		width:100%;
+		padding:0px;
+	}
+	.menubar a{
+		display:block;
+		float:none;
+		width:100%;
+
+	}
+	.menubar a:hover{
+		background-color:inherit;
+
+	}
+	.menubar li{
+		/*display:block;*/
+		width:100%;
+		padding:0px;
+	}
+	.nav{
+		width:100%;
+		padding:0px;
+	}
+}
+.maincontents{
+
+}
+.menubutton{
+	background-color:#17416f;
+	border:none;
+	cursor:pointer;
+	text-align: center;
+	width:15rem;
+}
+#navcontents{
+	width:17.58241758241758%;
+}
+@media (max-width:750px){
+	#navcontents{
+		width:15rem;
+	}
+}
+.leftnavmenubar{
+	list-style: none !important;
+	background-color:#a78436;
+	margin:0px;
+	padding:0px;
+	width:100%;
+	overflow-y: auto;
+	height:535px;
+}
+.leftnavmenu{
+	padding:10px 0px 10px 0px;
+	width:100%;
+	background-color: #a78436;
+	color:white;
+	border:1px solid white;
+}
+.leftnavmenu:hover{
+	background-color: rgba(129, 124, 204, 0.42);
+}
+a:hover{
+	text-decoration: none !important;
+}
+#contents{
+	margin-left:2rem;
+	/*width:79.3%;
+	max-width:79.3%;*/
+	/*width:81.8125rem;*/
+}
+.btnwrapper{
+	background-color: #17416f;
+}
+.menubutton:hover{
+	background-color:#193758;
+	border-radius:5px;
+	box-shadow:3px 5px 9px #455990;
+}
+.nav li{}
+
+#leftcontainer{
+	padding:3rem 0px 4rem 0px;
+	background-color: #eafffe;
+	/*width:81.8125rem;*/
+}
+.leftcontainer-image{
+	margin-left:auto;
+	margin-right:auto;
+	width:500px;
+}
+
+#bannercontainer{
+	/*width:81.8125rem;*/
+}
+
+.wrappertextcont{}
+
+.signupcontainer{}
+.signincontainer{}
+dt{
+	width:100px;
+}
+.form-contents{
+	margin-top: 3rem;
+}
+.signupbtns{
+	height:auto !important;
+}
+.btns-container{
+	margin: 0em auto !important;
+}
+.buttoncontainer-create{
+	text-align:right;
+}
+.create-btn{
+
+}
+#submitoformindex-element, #submitformindex-element{
+	width:70px !important;
+	float: left;
+}
+#submitformpreedit-element, #submitwithpageno-element, #pagenumber-element{
+	width:100px !important;
+	float: left;
+}
+#pagenumber-element{
+	margin-top:3px;
+}
+#submitoformedit-element, #submitformedit-element, #helpful-element, #comment-element{
+	width:fit-content !important;
+	text-align:left;
+	float: left;
+}
+#submitoformedit-label, #submitformedit-label,  #submitformindex-label, #submitwithpageno-label, #comment-label{
+	display:none !important;
+}
+.book-spacing{
+	height:800px;
+	/*margin-bottom:5rem;
+	margin-top:1rem;*/
+}
+.just a{
+	color:black;
+
+}
+.users-ul{
+	list-style: none;
+	margin:0 0;
+	padding:0 0;
+}
+.users-ul-li{
+	padding: 0.6rem 0rem;
+	font-size: 1.9rem;
+}
+.users-books-ol li{
+	font-size:1.4rem;
+}
+#helpful-element{
+	margin-right: 10px;
+}
+.just{
+	height:480px !important;
+	overflow-y: scroll;
+}
+.bookcontents{
+	/*margin-bottom: 4rem;*/
+	min-height: 300px;
+	/*border:1px double blue;*/
+}
+.each-page{
+	height: 360px;
+	overflow-y: scroll;
+}
