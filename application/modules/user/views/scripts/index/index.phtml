@@ -1,0 +1,12 @@
+<div class="container">
+	<?php foreach($this->book as $key => $value): ?>
+	<div class="shadow border-bottom">
+		<h5 class="text-center display-4">
+					<a href="/user/otherbooksview/insideview?bookId=<?= $value->getBookId()?>">
+						<?php echo $value->getBookName(); ?>
+					</a>
+				</h5>
+	</div>
+
+<?php endforeach; ?>
+</div>

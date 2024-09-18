@@ -1,0 +1,20 @@
+<nav class="navbar">
+			<div class="container-fluid">
+				<div class="pagename">
+					Niraj's Empire
+				</div>
+				<div class="menubar">
+					<ul class="nav">
+						<li><a href="/user/" class="commonbutton">Home</a></li>
+						<li><a href="/user/" class="commonbutton">Helpful books</a></li>
+						<li><a href="/user/otherbooksview/" class="commonbutton">View by users</a></li>
+						<li><a href="/user/otherusersview/" class="commonbutton">Authors</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<?php if($this->moduleName == "user"): ?>
+		<div class="btnwrapper">
+						<span class="text-primary" style="float:right;margin-right: 5rem;">Logged as <?= getAuthorRow()->getName()?> <a href="/user/index/logout" class="btn btn-primary btn-sm">Log out</a></span>
+			</div>
+		<?php endif;?>

@@ -1,0 +1,17 @@
+<nav class="navbar">
+			<div class="container-fluid">
+				<div class="pagename">
+					Niraj's Empire
+				</div><?php if(!$this->moduleName == "admin" || !$this->moduleName == "users" || !$this->moduleName == "guest"): ?>
+				<div class="menubar">
+					<ul class="nav">
+						<li><a href="/index/index" class="commonbutton">Home</a></li>
+						<li><a href="/ourservice/index" class="commonbutton">Our Services</a></li>
+						<li><a href="/contactus/index" class="commonbutton">Contact us</a></li>
+						<li><a href="/signin/index" class="commonbutton">Sign in</a></li>
+						<li><a href="/signup/index" class="commonbutton">Sign up</a></li>
+					</ul>
+				</div>
+			<?php endif; ?>
+			</div>
+		</nav>

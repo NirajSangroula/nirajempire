@@ -1,0 +1,24 @@
+<nav class="navbar">
+			<div class="container-fluid">
+				<div class="pagename">
+					Niraj's Empire
+				</div>
+				<div class="menubar">
+					<ul class="nav">
+						<li><a href="/admin/" class="commonbutton">Home</a></li>
+						<li><a href="/admin/bookcreate/" class="commonbutton">Add</a></li>
+						<li><a href="/admin/mybookview/" class="commonbutton">My books</a></li>
+						<li><a href="/admin/otherbooksview/" class="commonbutton">View by users</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<?php if($this->moduleName == "user" || $this->moduleName == "admin" || $this->moduleName == "guest"): ?>
+		<div class="btnwrapper">
+					<button id="menutoggler" class="menubutton" onclick="opena()"><i class="material-icons" style="font-size:1.5rem;color:#6155ff">unfold_more</i></button>
+					<button style="display:none" id="menutoggler1" class="menubutton" onclick="closea()"><i class="material-icons" style="font-size:1.5rem;color:#6155ff">unfold_more</i></button>
+					<?php if(isset($this->authorName)): ?>
+						<span class="text-primary" style="float:right;margin-right: 5rem;">Logged as <?= $this->authorName ?> <a href="/admin/index/logout" class="btn btn-primary btn-sm">Log out</a></span>
+					<?php endif; ?>
+			</div>
+		<?php endif;?>

@@ -1,0 +1,22 @@
+<h1 class="bg-primary display-1">Sorry to say, but true fact is always true</h1>
+
+<div class="container-fluid bg-danger">
+		<h2>Error reason: <span class="h1 text-warning"><?php echo $this->message ?></span></h2>
+</div>
+<?php if (isset($this->exception)): ?>
+
+	<h3>Exception information:</h3>
+	<p>
+		<b>Message:</b> <?php echo $this->exception->getMessage() ?>
+	</p>
+
+	<h3>Stack trace:</h3>
+	<pre><?php echo $this->exception->getTraceAsString() ?>
+	</pre>
+
+	<h3>Request Parameters:</h3>
+	<pre><?php echo $this->escape(var_export($this->request->getParams(), true)) ?>
+	</pre>
+
+	<?php
+ endif ?>

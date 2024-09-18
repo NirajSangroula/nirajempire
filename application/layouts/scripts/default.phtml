@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<?php include_once("headsection.phtml"); ?>
+	</head>
+	<body>
+		<?php if($this->moduleName == "admin"){
+		include_once("admintopbar.phtml");
+	}
+	else if($this->moduleName == "user"){
+		include_once("usertopbar.phtml");
+	}
+	else{
+		include_once("topbar.phtml");
+	}
+	?>
+	<?php 
+		if($this->moduleName == "admin"){
+			include_once("rightmenubar.phtml");
+			} 
+			?>
+
+			<div id="contents">
+				<?php echo $this->layout()->content; ?>
+				
+			</div>
+		</div>
+
+		<script src="/javascript/aiojava.js">
+		</script>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<div class="container">
+	<?php for($j = 0;$j < $this->booksCount; $j += 3): ?>
+	<div class="book-spacing row container">
+
+		<?php 
+		
+		$p=3;
+		if($j+3 > $this->booksCount){
+			$p = $this->booksCount % 3;
+		}
+		$n = $j;
+		for($i = $j; $i < $n+$p; $i++):
+			$bookId = $this->books[$i]->getBookId();
+			$pages = \App\Models\PostsMapper::getInstance()->getPage(getAuthorRow()->getId(), $bookId, 1, ['lastupdated'])[0];
+		 ?>
+			
+			<div class="col-lg-4 col-md-12"><a href="/admin/bookedit/insideedit?bookId=<?= $bookId?>&page=1">
+				<h5 class="text-center"><?=$this->books[$i]->getBookName() ?></h5>
+				<h6 class="text-center"><?= $pages->getPageHeader()?></h6></a>
+				<div class="just text-justify container">
+					<?=$pages->getContents() ?>
+				</div>
+			</a>
+			</div>
+		<?php endfor; ?>
+	</div>
+	<?php endfor; ?>
+	<?php if($this->page>1):?>
+		<a href="/admin/bookedit/index?page=<?=$this->page-1?>" class="btn btn-primary" >Previous</a>
+	<?php endif;?>
+	<?php if($this->next): ?>
+		<a href="/admin/bookedit/index?page=<?=$this->page+1?>" class="btn btn-primary">Next</a>
+	<?php endif; ?>
+</div>

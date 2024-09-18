@@ -1,0 +1,63 @@
+<div class="container-fluid">
+<?php for($j = 0;$j < $this->booksCount; $j++): $bookId = $this->books[$j]->getBookId();?>
+			<div style="margin-top: 3rem; " class="shadow-lg p-3 mb-5 bg-white border-top container">
+				<h3 class="text-center display-3">
+					<a href="/user/otherbooksview/insideview?bookId=<?= $bookId?>&page=<?= maxPage($bookId) + 1?>">
+						<?php echo $this->books[$j]->getBookName() ?>
+					</a>
+				</h3>
+				<h6 class="text-center"><?= $this->pages[$j]->getPageHeader()?></h6>
+				<div class="each-page container text-justify">
+					<?=$this->pages[$j]->getContents() ?>
+				</div>
+				<!-- buttons section -->
+				<div style="width:400px !important;float:right;" class="container">
+					<div style="width:100%;" class="container">
+						<span class="badge badge-primary"><?=\App\Models\HelpfulMapper::getInstance()->getHelpfulCount($this->books[$j]->getBookId()) ?></span>
+
+						<?php if(!\App\Models\HelpfulMapper::getInstance()->hasHelped(['bookid' => $this->books[$j]->getBookId(), 'userid' => $this->userId])): ?>
+							<a href="/user/otherbooksview/helpful?page=<?=$this->page?>&bookId=<?=$this->books[$j]->getBookId()?>&status=1" class="btn btn-primary btn-sm">Helpful</a>
+						<?php endif; ?>
+						<?php if(\App\Models\HelpfulMapper::getInstance()->hasHelped(['bookid' => $this->books[$j]->getBookId(), 'userid' => $this->userId])): ?>
+							<a href="/user/otherbooksview/helpful?page=<?=$this->page?>&bookId=<?=$this->books[$j]->getBookId()?>&status=0" class="btn btn-danger btn-sm">Not Helpful</a> 
+						<?php endif;?>
+						<span class="text-info">Comments</span><span style="cursor: pointer;" onclick="showcontents(<?= $j?>)" class="badge badge-info"><?= \App\Models\CommentMapper::getInstance()->getCommentCount($this->books[$j]->getBookId())?></span>
+							<div style="clear:both;"></div>
+					</div>
+
+					<div style="width:100%;" class="container">
+						<?php echo $this->form->setDefaults(['bookid' => $this->books[$j]->getBookId(), 'page' => $this->page]);?>
+						<div style="clear:both;"></div>
+					</div>
+
+				</div>
+
+				<div style="clear:both;"></div>
+				<div onclick="showcontents(<?= $j?>)" id="showcomments<?= $j?>" class="container text-center" style="background-color: #17416f!important;cursor:pointer;color:#05d5d6;">
+					Show Comments
+				</div>
+				<div onclick="hidecontents(<?= $j?>)" id="hidecomments<?= $j?>" class="container text-center" style="background-color: #17416f!important;display:none;cursor: pointer;color:#05d5d6;">
+					Hide Comments
+				</div>
+				</div>
+				<div style="display:none;" id="manipulate<?= $j?>" class="container">
+					<?php foreach($comments = \App\Models\CommentMapper::getInstance()->getComments($this->books[$j]->getBookId()) as $key => $value): ?>
+						<div class="comment-block-view">
+							<h6 class="display-6"><?= \App\Models\UsersMapper::getInstance()->getUserName(['id' => $value->getUserId()])?></h6>
+							<p>
+								<?= $value->getContent()?>
+							</p>
+						</div>
+					<?php endforeach; ?>
+				</div>
+				
+<?php endfor; ?>
+</div>
+<div class="container-fluid" >
+	<?php if($this->page>1):?>
+		<a href="/user/otherbooksview/index?page=<?=$this->page-1?>" class="btn btn-primary" >Previous</a>
+	<?php endif;?>
+	<?php if($this->next): ?>
+		<a href="/user/otherbooksview/index?page=<?=$this->page+1?>" class="btn btn-primary">Next</a>
+	<?php endif; ?>
+</div>

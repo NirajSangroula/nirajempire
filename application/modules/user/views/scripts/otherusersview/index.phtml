@@ -1,0 +1,18 @@
+<div class="container">
+	<ul class="list-group">
+		<?php foreach ($this->users as $key => $value): ?>
+			<li class="list-group-item">
+				<h1 class="display-4"><?= $value->getName()?></h1>
+				<ul style="padding: 0rem 0rem 0rem 4em" class="list-group" >
+				<?php foreach ($this->books[$key] as $key1 => $value1): ?>
+							<?php if($this->books[$key][0]): ?>
+								<li >
+									<a href="/user/otherbooksview/insideview?bookId=<?=$value1->getBookId()?>" ><?= $value1->getBookName()?></a>
+								</li>
+							<?php endif; ?>
+				<?php endforeach; ?>
+				</ul>
+			</li>
+		<?php endforeach ?>
+	</ul>
+</div>

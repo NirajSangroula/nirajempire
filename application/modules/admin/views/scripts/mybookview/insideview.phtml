@@ -1,0 +1,41 @@
+<div class="container-fluid">
+	<a href="/admin/mybookview" style="float:right;" class="btn btn-primary">Back</a>
+</div>
+<div class="container">
+	<h1 class="display-2 text-center"><?= $this->bookName?></h1>
+	<?php for($i = 0; $i < count($this->pages); $i++): ?>
+		<div class="shadow p-3 mb-5 bg-white border rounded container bookcontents">
+			<h6>page: <?=$i+1?></h6>
+			<h5><?=$this->pages[$i]->getPageHeader()?></h5>
+			<p class="text-justify"><?= $this->pages[$i]->getContents()?></p>
+		</div>
+		<div class="container">
+			<a href="/admin/mybookview/bookinsidedelete?page=<?=$this->page?>&pageid=<?=$this->pages[$i]->getPId()?>&bookid=<?=$this->bookId ?>" class="btn btn-danger">Delete page</a>
+		</div>
+	<?php endfor; ?>
+	<div style="margin: 2rem 0rem;" class="container">
+		<button onclick="document.getElementById('comments').style.display='block';document.getElementById('helpful').style.display='none';" class="btn btn-primary"><span class="badge badge-warning"><?= count($this->comments)?></span> Comments</button>
+
+		<button onclick="document.getElementById('comments').style.display='none';document.getElementById('helpful').style.display='block';" style="margin-left:2rem;" class="btn btn-info"><span class="badge badge-warning"><?= count($this->helpful)?></span> Helpful</button>
+	</div>
+	<div style="display:none;" id="comments" class="container comments">
+		<?php if(!$this->comments): ?><p class="text-warning">No comments</p><?php endif;?>
+		<?php foreach($this->comments as $key => $value):?>
+			<div class="container text-left">
+				<h6  class="display-6"><?= $value[0]?>: </h6>
+				<p class="text-info"><?= $value[1]?></p>
+				<p class="text-justify" style="border-bottom: 1px solid orange">
+					<?= $value[2]?>
+				</p>
+			</div>
+		<?php endforeach;?>
+	</div>
+	<div style="display:none;" id="helpful" class="container helpful">
+		<?php if(!$this->helpful): ?><p class="text-warning">Not helpful till now</p><?php endif;?>
+		<?php foreach($this->helpful as $value): ?>
+			<h6 class="text-info" style="float: left;"> <?=$value[0]?></h6>
+			<h6 class="text-primary" style="float:left;margin-left:3rem;"> <?=$value[1]?></h6>
+			<div style="clear:both"></div>
+		<?php endforeach; ?>	
+	</div>
+</div>
